@@ -1,17 +1,17 @@
 python train.py \
 --use_gpu True \
 --gpu_id 0 \
---data_dir '/home/liming/pro/DHVC/data/' \
+--data_dir '/home/yinghan/Data/tiny-imagenet-200/' \
 --dual_net True \
---epochs 100 \
+--epochs 20 \
 --batch_size 32 \
 --lr 0.001 \
 --lambda_H 1.0 \
---lambda_R 1.0 \
---use_wandb True \
+--lambda_R 0.75 \
+--use_wandb False \
 --use_repro False \
 --seed -1 \
 --out_dir './output/' \
 --save_log_freq 10 \
 --save_img_freq 100 \
---save_after_epoch 50
+--save_after_epoch 10

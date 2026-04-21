@@ -9,6 +9,15 @@ IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']
 
 
 def is_image_file(filename):
+    """
+    检查文件是否为图像文件
+    
+    Args:
+        filename (str): 待检查的文件名
+        
+    Returns:
+        bool: 如果文件扩展名在支持的图像格式列表中则返回True，否则返回False
+    """
     ext = filename.lower().split('.')[-1] #lower小写，split分割字符串，[-1]取最后一个元素，即扩展名
     return ext in IMG_EXTENSIONS
 
