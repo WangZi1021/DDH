@@ -1,0 +1,17 @@
+python train.py \
+--use_gpu True \
+--gpu_id 0 \
+--data_dir '/home/liming/pro/DHVC/data/' \
+--dual_net True \
+--epochs 100 \
+--batch_size 32 \
+--lr 0.001 \
+--lambda_H 1.0 \
+--lambda_R 1.0 \
+--use_wandb True \
+--use_repro False \
+--seed -1 \
+--out_dir './output/' \
+--save_log_freq 10 \
+--save_img_freq 100 \
+--save_after_epoch 50
