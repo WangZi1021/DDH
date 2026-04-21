@@ -15,14 +15,12 @@ def is_image_file(filename):
 
 def get_files(data_dir):
     img_list = []
-    imgs = os.listdir(data_dir)
-    imgs = sorted(imgs)  # imgs = imgs.sort()
-
-    for img in imgs:
-        if is_image_file(img):#逻辑错误？
-            img_path = os.path.join(data_dir, img)
-            img_list.append(img_path)
-
+    for root, dirs, files in os.walk(data_dir):
+        for img in files:
+            if is_image_file(img):
+                img_path = os.path.join(root, img)
+                img_list.append(img_path)
+    img_list = sorted(img_list)
     return img_list
 
 
