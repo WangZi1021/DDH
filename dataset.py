@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 
 
-IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']
+IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm', '.JPEG', '.JPG']
 
 
 def is_image_file(filename):
@@ -24,12 +24,20 @@ def is_image_file(filename):
 
 def get_files(data_dir):
     img_list = []
+    print(f"[DEBUG] Searching in: {data_dir}")
+    
+    # 标准化路径（处理 Windows 反斜杠）
+    data_dir = os.path.normpath(data_dir)
+    
     for root, dirs, files in os.walk(data_dir):
+        print(f"[DEBUG] Walking: {root}, files: {len(files)}")
         for img in files:
-            if is_image_file(img):
+            ext = img.lower().split('.')[-1]
+            if ext in ['jpg', 'jpeg', 'png', 'ppm', 'bmp', 'pgm']:
                 img_path = os.path.join(root, img)
                 img_list.append(img_path)
     img_list = sorted(img_list)
+    print(f"[DEBUG] Found {len(img_list)} images")
     return img_list
 
 

@@ -122,7 +122,7 @@ def train(opt, train_loader, epoch, net_H, net_R, optim_H, optim_R, criterion, d
 
         cover_img = data
         batch_size = cover_img.shape[0]
-        idx = utils.get_perm_index(batch_size)//生成一个随机排列的索引列表
+        idx = utils.get_perm_index(batch_size)  # 生成一个随机排列的索引列表
         secret_img = cover_img[idx, :, :, :].clone().detach()
 
         cover_img = cover_img.to(device, non_blocking=True)
